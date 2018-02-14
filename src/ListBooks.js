@@ -159,7 +159,10 @@ class ListBooks extends Component {
               </div>
             </div>
             <div className="open-search">
-              <a onClick={() => this.props.setState({ removeContact: true })}>Add a book</a>
+                <a
+                    href="#search"
+                    onClick={this.props.onNavigate}
+                    >Add a book</a>
             </div>
           </div>
     )

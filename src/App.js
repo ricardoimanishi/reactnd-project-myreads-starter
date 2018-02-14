@@ -1,5 +1,5 @@
 import React from 'react'
-import * as BooksAPI from './BooksAPI'
+//import * as BooksAPI from './BooksAPI'
 import SearchBooks from './SearchBooks'
 import ListBooks from './ListBooks'
 import './App.css'
@@ -14,21 +14,21 @@ class BooksApp extends React.Component {
      */
     showSearchPage: false
   }
-  
-  removeContact = (contact) => {
-    this.setState((state) => ({
-      showSearchPage: contact
-    }))
-  }
+
     
   render() {
     return (
       <div className="app">
         {this.state.showSearchPage ? (
-          <SearchBooks 
-           onDeleteContact={this.removeContact}     />
+                                  <SearchBooks onNavigate={() => {
+                                          this.setState({showSearchPage: false})
+                                               }}/>
         ) : (
-          <ListBooks onDeleteContact={this.removeContact} />
+                          <ListBooks
+                          onNavigate={() => {
+                                                                        this.setState({showSearchPage: true })
+                          }}
+                          />
         )}
       </div>
     )
